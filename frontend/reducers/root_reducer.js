@@ -17,9 +17,9 @@ import sessionReducer from "./session_reducer";
 // };
 
 const rootReducer = combineReducers({
-  entities: entitiesReducer,
-  errors: errorsReducer,
-  session: sessionReducer
+    entities: entitiesReducer,
+    errors: errorsReducer,
+    session: sessionReducer
 });
 
 export default rootReducer;

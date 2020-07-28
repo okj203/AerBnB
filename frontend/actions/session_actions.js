@@ -26,18 +26,12 @@ export const logout = () => dispatch => (SessionAPIUtil.logout()
 
 export const signup = user => dispatch => (SessionAPIUtil.signup(user)
     .then(payload => dispatch(receiveCurrentUser(payload))));
-/**
- * 
- * 
- * 
- * 
+
+/*
     login(user) (thunk action creator)
     logout() (thunk action creator)
     signup(user) (thunk action creator)
     receiveCurrentUser(currentUser) (regular action creator)
     logoutCurrentUser() (regular action creator)
     receiveErrors(errors) (regular action creator)
- * 
- * 
- * 
  */

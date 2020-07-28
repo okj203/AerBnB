@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
 
         if @user
             login!(@user)
-            render json: @user
+            render "api/users/show"
         else
             flash.now[:errors] = ['Invalid username or password.']
             # render json: { error: "invalid credentials" }
@@ -21,7 +21,7 @@ class Api::SessionsController < ApplicationController
         @user = current_user
         if @user
             logout!
-            render json: @user
+            render "api/users/show"
         else
             render json: {
                     error: "no user logged in",
@@ -30,3 +30,4 @@ class Api::SessionsController < ApplicationController
         end
     end
 end
+

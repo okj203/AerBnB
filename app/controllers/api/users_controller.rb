@@ -5,8 +5,9 @@ class Api::UsersController < ApplicationController
                 password: params[:user][:password])
         if @user.save
             login!(@user)
-            render :show
+            render "api/users/show"
         else
+            # render json: @user.errors.full_messages, status: 422
             render json: {
                     error: "invalid credentials",
                     status: 404
