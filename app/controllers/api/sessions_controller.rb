@@ -27,6 +27,7 @@ class Api::SessionsController < ApplicationController
             render "api/users/show"
         else
             render json: ["No user logged in."], status: 404
+            # b/c no user is found
             # b/c I don't have a user class (nill class) to call errors messages on 
             # 
 
