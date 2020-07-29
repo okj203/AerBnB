@@ -1,0 +1,43 @@
+html {
+	position: relative;
+	height: 100%;
+}
+
+header {
+   margin-left: 5%;
+}
+
+.airbnb-logo {
+	width: 46px;
+}
+
+body {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 12px;
+	font-family: 'Abel', sans-serif;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.hidden {
+	display: none;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+p {
+	line-height: 16px;
+}
+

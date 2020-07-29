@@ -21,7 +21,8 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.action(user).then(() => {this.props.history.push("/")}); 
+        this.props.action(user).then(this.props.closeModal);
+        // .then(() => {this.props.history.push("/")}); 
         // catch the action promise, and THEN on success, next place will be "/"
         // both login && signup has an action prop (cb) that takes "user" as an argument
     }
@@ -41,7 +42,7 @@ class SessionForm extends React.Component {
     render() {
         const birthday = (this.props.formType === "signup" ? ( 
         <>
-            <label>First Name:
+            <label className="login-label">First Name:
                 <input 
                 type="text" 
                 value={this.state.first_name}
@@ -51,7 +52,7 @@ class SessionForm extends React.Component {
             </label> 
             <br />
 
-            <label>Last Name:
+            <label className="login-label">Last Name:
                 <input 
                 type="text" 
                 value={this.state.last_name}
@@ -61,7 +62,7 @@ class SessionForm extends React.Component {
             </label> 
             <br />
 
-            <label>Birthday:
+            <label className="login-label">Birthday:
                 <input 
                 type="date" 
                 value={this.state.birthday}
@@ -71,7 +72,7 @@ class SessionForm extends React.Component {
             </label> 
             <br />
 
-            <label>Email:
+            <label className="login-label">Email:
                 <input 
                 type="text" 
                 value={this.state.email}
@@ -82,18 +83,20 @@ class SessionForm extends React.Component {
         </>
         ) : ( <></> ))
         
+        const header = this.props.formType === 'login' ? 'LOG IN' : 'SIGN UP'
+
         return (
 
             <div className="login-container">
                 <form onSubmit={this.handleSubmit} className="login-box">
                 <br />
-
+                    <h2 className="login-header">{header}</h2>
                     {/* {this.props.formType} or {this.props.navLink} */}
                     {this.renderErrors()}
                     <div className="login-form">
                         <br />
 
-                        <label>Username:
+                        <label className="login-label">Username:
                             <input type="text"
                                 value={this.state.username}
                                 onChange={this.update('username')}
@@ -102,7 +105,7 @@ class SessionForm extends React.Component {
                         </label>
                         <br />
 
-                        <label>Password:
+                        <label className="login-label">Password:
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
@@ -113,7 +116,7 @@ class SessionForm extends React.Component {
 
                         {birthday}
                         <br />
-                        <button className="session-submit" type="submit" value={this.props.formType}>Continue</button>
+                        <button className="session-submit" type="submit" value={this.props.formType}>{header}</button>
                     </div>
                 </form>
             </div>
