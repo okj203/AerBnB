@@ -6,18 +6,26 @@ import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const store = configureStore();
+    // const store = configureStore();
+
+    let store;  
+    if (window.currentUser) {
+        // console.log("hello")    
+        const preloadedState = { session: { currentUser: window.currentUser }};    
+        store = configureStore(preloadedState);    
+        delete window.currentUser; 
+        } else {    
+        store = configureStore();  
+    }
+
     window.signup = signup;
     window.login = login;
     window.logout = logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
 
     const root = document.getElementById("root");
-    ReactDOM.render(<h1>AerBnB</h1>, root);
-    // ReactDOM.render(<Root store={store}/>, root);
+    ReactDOM.render(<Root store={store}/>, root);
 });
 
 // Rails Commands:
