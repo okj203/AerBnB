@@ -1,8 +1,14 @@
 import React from 'react';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
+    let status = 'login-singup'
+
+    // function imgClick () {
+    //     status = 'login-signup2'
+    // }
+
     const sessionLinks = () => (
-        <nav className="login-signup">
+        <nav className={status}>
             <button onClick={() => openModal('login')}>Login</button>
             <br/>
             <button onClick={() => openModal('signup')}>Signup</button>
@@ -16,6 +22,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     );
 
     return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();
+    // return currentUser ? personalGreeting() : sessionLinks();
 };
 
 

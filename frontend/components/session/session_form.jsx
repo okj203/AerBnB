@@ -21,7 +21,8 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.action(user).then(this.props.closeModal);
+        this.props.action(user).then(this.props.closeModal)
+        
         // .then(() => {this.props.history.push("/")}); 
         // catch the action promise, and THEN on success, next place will be "/"
         // both login && signup has an action prop (cb) that takes "user" as an argument

@@ -11,21 +11,18 @@
  }
 
  .login-header {
-     padding: 15px;
+     padding: 10px;
     font-size: 18px;
     font-weight: 500;
     margin: 0;
  }
 
  .login-label {
-    // color: #999999;
-    // position: absolute;
-    // top: 19px;
-    // left: 14px;
-    // transition: all .2s ease-out;
-    // z-index: 5000;
-    // margin-left: 13px;
-    // margin-top: 63px;
+    color: #999999;
+    transition: all .2s ease-out;
+    z-index: 5000;
+    margin-left: 13px;
+    margin-top: 10px;
  }
 
  .login-input {
@@ -63,12 +60,37 @@
   border-color: rgb(189, 30, 89);
 }
 
+.login-dropdown {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+}
+
 .login-signup {
-    color: black;
+  display: none;
+  position: absolute;
+  color: black;
 	font-weight: normal;
 	border-radius: 3px;
 	transition: background-color 0.3s;
 	text-transform: uppercase;
 	font-size: 13px;
-	text-align: center;
+	text-align: right;
 }
+
+.login-dropdown:hover .login-signup {
+  display: block;
+}
+
+// .login-signup2 {
+//   display: block;
+//   position: absolute;
+//   color: black;
+// 	font-weight: normal;
+// 	border-radius: 3px;
+// 	transition: background-color 0.3s;
+// 	text-transform: uppercase;
+// 	font-size: 13px;
+// 	text-align: right;
+// }
