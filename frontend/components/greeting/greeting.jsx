@@ -1,18 +1,16 @@
 import React from 'react';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
-    let status = 'login-singup'
-
-    // function imgClick () {
-    //     status = 'login-signup2'
-    // }
+    let status = 'login-signup'
 
     const sessionLinks = () => (
-        <nav className={status}>
-            <button onClick={() => openModal('login')}>Login</button>
-            <br/>
-            <button onClick={() => openModal('signup')}>Signup</button>
-        </nav>
+        <div type="submit" className="login-dropdown">
+            <nav className={status}>
+                <button onClick={() => openModal('login')}>Login</button>
+                <br/>
+                <button onClick={() => openModal('signup')}>Signup</button>
+            </nav>
+        </div>
     );
     const personalGreeting = () => (
         <hgroup className="header-group">

@@ -302,16 +302,12 @@ var App = function App() {
       className: "header-link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "airbnb-logo",
-      src: "https://toppng.com/uploads/preview/airbnb-a-icon-vector-logo-airbnb-logo-vector-115628719165xnp0e2zd1.png",
+      src: "https://cdn0.iconfinder.com/data/icons/picons-social/57/68-airbnb-2-512.png",
       alt: "AirBnB Logo"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      className: "login-dropdown",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSSPaYka9tAxrly2_1YdQ-bFrd8UxniQUkjCpO3pqg12lmzfmsnMnWEZvoI7ZyIy9JYmXj-OZ2Ki50NRqx_PyDAjmny21zOwwhSYbdP&usqp=CAU&ec=45682162",
-      alt: "login-dropdown"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "middle-section"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      "class": "olympic-logo",
+      className: "olympic-logo",
       "aria-hidden": "true",
       alt: "Worldwide Olympic and Paralympic Partner",
       src: "https://a0.muscache.com/pictures/0c30b700-de34-4d6c-94bd-226f43396be9.jpg",
@@ -351,12 +347,13 @@ var Greeting = function Greeting(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout,
       openModal = _ref.openModal;
-  var status = 'login-singup'; // function imgClick () {
-  //     status = 'login-signup2'
-  // }
+  var status = 'login-signup';
 
   var sessionLinks = function sessionLinks() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      type: "submit",
+      className: "login-dropdown"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
       className: status
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
@@ -366,7 +363,7 @@ var Greeting = function Greeting(_ref) {
       onClick: function onClick() {
         return openModal('signup');
       }
-    }, "Signup"));
+    }, "Signup")));
   };
 
   var personalGreeting = function personalGreeting() {

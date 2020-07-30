@@ -27,22 +27,20 @@ const App = () => (
                 
             <header id="background">
                 <Link to="/" className="header-link">
-                <img className="airbnb-logo" src="https://toppng.com/uploads/preview/airbnb-a-icon-vector-logo-airbnb-logo-vector-115628719165xnp0e2zd1.png" alt="AirBnB Logo"/>
+                <img className="airbnb-logo" src="https://cdn0.iconfinder.com/data/icons/picons-social/57/68-airbnb-2-512.png" alt="AirBnB Logo"/>
+                {/* <img className="airbnb-logo" src="https://icon-library.com/images/airbnb-icon/airbnb-icon-22.jpg" alt="AirBnB Logo"/> */}
                 {/* airbnb logo svg */}
                 </Link>
-
-                <img className="login-dropdown" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSSPaYka9tAxrly2_1YdQ-bFrd8UxniQUkjCpO3pqg12lmzfmsnMnWEZvoI7ZyIy9JYmXj-OZ2Ki50NRqx_PyDAjmny21zOwwhSYbdP&usqp=CAU&ec=45682162" alt="login-dropdown" />
-                
                 <GreetingContainer />
                 
                 <div className="middle-section">
                     <section>
-                        <img class="olympic-logo"
+                        <img className="olympic-logo"
                         aria-hidden="true"
                         alt="Worldwide Olympic and Paralympic Partner"
                         src="https://a0.muscache.com/pictures/0c30b700-de34-4d6c-94bd-226f43396be9.jpg"
                         data-original-uri="https://a0.muscache.com/pictures/0c30b700-de34-4d6c-94bd-226f43396be9.jpg"
-                        ></img>
+                        />
                         <br/>
                         <div className="introducing">INTRODUCING</div>
                         <br/>

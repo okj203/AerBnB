@@ -60,37 +60,34 @@
   border-color: rgb(189, 30, 89);
 }
 
-.login-dropdown {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    display: inline-block;
-}
+// .login-dropdown {
+//   // <img className="login-dropdown" src={window.loginIMG} alt="loginIMG" />
+//     content: url("https://img.pngio.com/app-icon-set-login-icon-svg-png-icon-free-download-311846-login-icon-png-980_980.png");
+//     cursor: pointer;
+//     margin-left: 48px;
+//     width: 45px;
+//     position: relative;
+// }
 
 .login-signup {
-  display: none;
+  // display: none;
+  margin-left: 48px;
   position: absolute;
   color: black;
 	font-weight: normal;
 	border-radius: 3px;
 	transition: background-color 0.3s;
 	text-transform: uppercase;
-	font-size: 13px;
+	font-size: 15px;
 	text-align: right;
 }
 
-.login-dropdown:hover .login-signup {
+.login-dropdown:hover > .login-signup {
   display: block;
 }
 
-// .login-signup2 {
-//   display: block;
-//   position: absolute;
-//   color: black;
-// 	font-weight: normal;
-// 	border-radius: 3px;
-// 	transition: background-color 0.3s;
-// 	text-transform: uppercase;
-// 	font-size: 13px;
-// 	text-align: right;
-// }
+.login-signup > button:hover {
+  display: block;
+  background-color: #ff0066;
+  padding: 10px;
+}

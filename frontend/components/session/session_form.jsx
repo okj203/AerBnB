@@ -117,7 +117,9 @@ class SessionForm extends React.Component {
 
                         {birthday}
                         <br />
-                        <button className="session-submit" type="submit" value={this.props.formType}>{header}</button>
+                       
+                            <button className="session-submit" type="submit" value={this.props.formType}>{header}</button>
+                        
                     </div>
                 </form>
             </div>
