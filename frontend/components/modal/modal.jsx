@@ -3,29 +3,47 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginContainer from '../session/login_container';
 import SignupContainer from '../session/signup_container';
+import { clearErrors } from '../../actions/session_actions'
+// import { render } from 'react-dom';
 
-function Modal({ modal, closeModal }) {
-    if (!modal) {
-        return null;
+class Modal extends React.Component {
+    constructor(props){
+        super(props)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    let component;
-    switch (modal) {
-        case 'login':
-            component = <LoginContainer />;
-            break;
-        case 'signup':
-            component = <SignupContainer />;
-            break;
-        default:
+
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.closeModal();
+        this.props.clearErrors();
+    }
+    
+    render() {
+        const {modal} = this.props
+        if (!modal) {
             return null;
-    }
-    return (
-        <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {component}
+        }
+
+        let component;
+        switch (modal) {
+            case 'login':
+                component = <LoginContainer />;
+                break;
+            case 'signup':
+                component = <SignupContainer />;
+                break;
+            default:
+                return null;
+        }
+
+        return (
+            <div className="modal-background" onClick={this.handleSubmit}>
+                <div className="modal-child" onClick={e => e.stopPropagation()}>
+                    {component}
+                </div>
             </div>
-        </div>
-    );
+        )
+    }
 }
 
 const mapState = state => {
@@ -36,7 +54,8 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
     return {
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        clearErrors: () => dispatch(clearErrors())
     };
 };
 
