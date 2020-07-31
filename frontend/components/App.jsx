@@ -20,9 +20,11 @@ const App = () => (
     // by default of hashrouter '/' is homepage (#/)
 
         <div>
-            <aside className="aside-1" datanosnippet="true">
-                <a className="aside-2" href="https://www.airbnb.com/resources/hosting-homes?persona=guest" target="_blank">Get the latest on our COVID-19 response</a>
-            </aside>
+            <div>
+                <aside className="aside-1" datanosnippet="true">
+                    <a className="aside-2" href="https://www.airbnb.com/resources/hosting-homes?persona=guest" target="_blank">Get the latest on our COVID-19 response</a>
+                </aside>
+            </div>
             <Modal />
                 
             <header id="background">
@@ -37,18 +39,18 @@ const App = () => (
                 
                 <div className="middle-section">
                     <section>
-                        <img className="olympic-logo"
+                        {/* <img className="olympic-logo"
                         aria-hidden="true"
                         alt="Worldwide Olympic and Paralympic Partner"
                         src="https://a0.muscache.com/pictures/0c30b700-de34-4d6c-94bd-226f43396be9.jpg"
                         data-original-uri="https://a0.muscache.com/pictures/0c30b700-de34-4d6c-94bd-226f43396be9.jpg"
-                        />
+                        /> */}
                         <br/>
-                        <div className="introducing">INTRODUCING</div>
+                        <div className="introducing">AERBNB</div>
                         <br/>
-                        <h1 className="olympian">Olympian & <br/> Paralympian Online <br/> Experiences</h1>
+                        <h1 className="olympian">Go out and begin<br/>your journey -<br/>one destination at a time.</h1>
                         <br/>
-                        <div className="medalist">Join medalist Lex Gillette, and a team of <br/> world-class athletes</div>
+                        <div className="medalist">Let finding a place to sleep be the least <br/>of your worries.</div>
                     
                         <a className="learnmore" href="https://www.airbnb.com/s/experiences/olympics-online">Learn More</a>
                     </section>

@@ -1,18 +1,19 @@
 header.row {
-    justify-content: space-evenly;
+    justify-content: space-between;
+    display: flex;
 }
 
 #header-img {
     // flex: 33.33%;
     // padding: 5px;
     float: left;
-    width: 33.33%;
+    width: auto;
     padding: 5px;
 }
 
-#header-img.airbnb-logo {
-	width: 50px;
-    margin-left: 48px;
+#header-img.aerbnb-logo {
+	width: 100px;
+    margin-left: 45px;
 	padding-top: 20px;
 }
 
@@ -25,11 +26,11 @@ header.row {
 //     display: flex;
 // }
 
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+// .row::after {
+//   content: "";
+//   clear: both;
+//   display: table;
+// }
 
 .middle-section {
     padding-top: 250px;

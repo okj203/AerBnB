@@ -54,12 +54,14 @@ class Greeting extends React.Component {
             return (
                     <div>
                         <header className="row">
-                            <img id="header-img" className="airbnb-logo" src="https://cdn0.iconfinder.com/data/icons/picons-social/57/68-airbnb-2-512.png" alt="AirBnB Logo" />
+                        <div>
+                        <img id="header-img" className="aerbnb-logo" src={window.logoIMG} alt="AerBnB Logo" />
                             {/* <div className="AerBnB">AerBnB</div> */}
 
                         <button id="header-img" className="login-dropdown" onClick={this.showDropdown}>
                             <img id="header-img" className="login-dropdown" src="https://img.pngio.com/app-icon-set-login-icon-svg-png-icon-free-download-311846-login-icon-png-980_980.png" alt="loginIMG"/>
-                            </button>
+                        </button>
+                        </div>
                         </header>
 
                         {
