@@ -27,7 +27,9 @@ const App = () => (
                 
             <header id="background">
                 <Link to="/" className="header-link">
-                <img className="airbnb-logo" src="https://cdn0.iconfinder.com/data/icons/picons-social/57/68-airbnb-2-512.png" alt="AirBnB Logo"/>
+                {/* <img className="airbnb-logo" src="https://cdn0.iconfinder.com/data/icons/picons-social/57/68-airbnb-2-512.png" alt="AirBnB Logo"/>
+                <div className="AerBnB">AerBnB</div> */}
+                
                 {/* <img className="airbnb-logo" src="https://icon-library.com/images/airbnb-icon/airbnb-icon-22.jpg" alt="AirBnB Logo"/> */}
                 {/* airbnb logo svg */}
                 </Link>

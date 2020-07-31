@@ -21,7 +21,8 @@ const mapDispatch = dispatch => {
                 Signup
             </button>
         ),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        login: user => dispatch(login(user))
     };
 }
 

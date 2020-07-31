@@ -310,11 +310,7 @@ var App = function App() {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
       to: "/",
       className: "header-link"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      className: "airbnb-logo",
-      src: "https://cdn0.iconfinder.com/data/icons/picons-social/57/68-airbnb-2-512.png",
-      alt: "AirBnB Logo"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "middle-section"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "olympic-logo",
@@ -390,7 +386,7 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      showMenu: false
+      showDropdownState: false
     };
     _this.showDropdown = _this.showDropdown.bind(_assertThisInitialized(_this));
     _this.closeDropdown = _this.closeDropdown.bind(_assertThisInitialized(_this));
@@ -401,10 +397,10 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Greeting, [{
     key: "showDropdown",
-    value: function showDropdown(event) {
+    value: function showDropdown(e) {
       var _this2 = this;
 
-      event.preventDefault();
+      e.preventDefault();
       this.setState({
         showDropdown: true
       }, function () {
@@ -442,17 +438,15 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "personalGreeting",
     value: function personalGreeting() {
-      /*#__PURE__*/
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hgroup", {
         className: "header-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "header-name"
       }, this.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "header-button",
+        className: "logout-button",
         onClick: this.props.logout
       }, "Log Out"));
-    } // return (this.props.currentUser ? personalGreeting(this.props.currentUser, this.props.logout) : sessionLinks())
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -461,10 +455,23 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
       if (this.props.currentUser) {
         return this.personalGreeting();
       } else {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+          className: "row"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          id: "header-img",
+          className: "airbnb-logo",
+          src: "https://cdn0.iconfinder.com/data/icons/picons-social/57/68-airbnb-2-512.png",
+          alt: "AirBnB Logo"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          id: "header-img",
           className: "login-dropdown",
           onClick: this.showDropdown
-        }, "AerBnB"), this.state.showDropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          id: "header-img",
+          className: "login-dropdown",
+          src: "https://img.pngio.com/app-icon-set-login-icon-svg-png-icon-free-download-311846-login-icon-png-980_980.png",
+          alt: "loginIMG"
+        }))), this.state.showDropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Dropdown",
           ref: function ref(element) {
             _this5.dropdownDropdown = element;
@@ -726,6 +733,9 @@ var mapDispatch = function mapDispatch(dispatch) {
     }, "Signup"),
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
+    },
+    login: function login(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     }
   };
 };
@@ -824,6 +834,8 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var birthday = this.props.formType === "signup" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "login-label"
       }, "First Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -879,9 +891,16 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "login-input"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), birthday, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "session-submit",
-        type: "submit",
         value: this.props.formType
-      }, header))));
+      }, header), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "session-submit",
+        onClick: function onClick() {
+          return _this3.props.login({
+            username: 'u33',
+            password: '123123'
+          }).then(_this3.props.closeModal);
+        }
+      }, "Demo"))));
     }
   }]);
 

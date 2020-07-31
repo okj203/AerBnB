@@ -118,7 +118,8 @@ class SessionForm extends React.Component {
                         {birthday}
                         <br />
                        
-                            <button className="session-submit" type="submit" value={this.props.formType}>{header}</button>
+                        <button className="session-submit" value={this.props.formType}>{header}</button>
+                        <button className="session-submit" onClick={() => this.props.login({ username: 'u33', password: '123123' }).then(this.props.closeModal)}>Demo</button>
                         
                     </div>
                 </form>

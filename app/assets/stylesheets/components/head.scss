@@ -1,3 +1,36 @@
+header.row {
+    justify-content: space-evenly;
+}
+
+#header-img {
+    // flex: 33.33%;
+    // padding: 5px;
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+#header-img.airbnb-logo {
+	width: 50px;
+    margin-left: 48px;
+	padding-top: 20px;
+}
+
+.AerBnB {
+    margin-left: 48px;
+    font-size: 15px;
+}
+
+// .row {
+//     display: flex;
+// }
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .middle-section {
     padding-top: 250px;
     text-align: left;
