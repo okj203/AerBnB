@@ -28,9 +28,9 @@ class Greeting extends React.Component {
     sessionLinks() {
         return(
             <nav className='login-signup'>
-                <button onClick={() => this.props.openModal('login')}>Login</button>
+                <button className="login-signup-ele" onClick={() => this.props.openModal('login')}>Log in</button>
                 <br/>
-                <button onClick={() => this.props.openModal('signup')}>Signup</button>
+                <button className="login-signup-ele" onClick={() => this.props.openModal('signup')}>Sign up</button>
             </nav>
         )
     }
@@ -38,8 +38,14 @@ class Greeting extends React.Component {
     personalGreeting() {
         return(
         <hgroup className="header-group">
-            <h2 className="header-name">{this.props.currentUser.username}</h2>
-            <button className="logout-button" onClick={this.props.logout}>Log Out</button>
+            <div className="flex">
+                <img id="header-img" className="aerbnb-logo" src={window.logoIMG} alt="AerBnB Logo" />
+                    <button className="header-name">
+                        <i class="fas fa-address-card"></i>
+                        {/* {this.props.currentUser.username} */}
+                    </button>
+                <button className="logout-button" onClick={this.props.logout}>Log Out</button>
+            </div>
         </hgroup>
         )
     }   
@@ -54,13 +60,12 @@ class Greeting extends React.Component {
             return (
                     <div>
                         <header className="row">
-                        <div>
-                        <img id="header-img" className="aerbnb-logo" src={window.logoIMG} alt="AerBnB Logo" />
-                            {/* <div className="AerBnB">AerBnB</div> */}
+                        <div className="flex">
+                            <img id="header-img" className="aerbnb-logo" src={window.logoIMG} alt="AerBnB Logo" />
 
-                        <button id="header-img" className="login-dropdown" onClick={this.showDropdown}>
-                            <img id="header-img" className="login-dropdown" src="https://img.pngio.com/app-icon-set-login-icon-svg-png-icon-free-download-311846-login-icon-png-980_980.png" alt="loginIMG"/>
-                        </button>
+                            <button id="header-img" className="login-dropdown" onClick={this.showDropdown}>
+                                <i class="far fa-address-card"></i>
+                            </button>
                         </div>
                         </header>
 

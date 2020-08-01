@@ -1,36 +1,28 @@
 header.row {
     justify-content: space-between;
+    display: block;
+}
+
+.flex {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #header-img {
-    // flex: 33.33%;
-    // padding: 5px;
     float: left;
     width: auto;
-    padding: 5px;
 }
 
 #header-img.aerbnb-logo {
 	width: 100px;
     margin-left: 45px;
-	padding-top: 20px;
 }
 
 .AerBnB {
     margin-left: 48px;
     font-size: 15px;
 }
-
-// .row {
-//     display: flex;
-// }
-
-// .row::after {
-//   content: "";
-//   clear: both;
-//   display: table;
-// }
 
 .middle-section {
     padding-top: 250px;

@@ -13,6 +13,14 @@ import GreetingContainer from './greeting/greeting_container';
 // import GreetingContainer from "./greeting/greeting";
 import Modal from './modal/modal';
 
+import fontawesome from '@fortawesome/fontawesome'
+import regular from '@fortawesome/free-regular-svg-icons'
+import solid from '@fortawesome/free-solid-svg-icons'
+import brands from '@fortawesome/free-brands-svg-icons'
+
+// fontawesome.library.add(regular)
+// fontawesome.library.add(solid)
+// fontawesome.library.add(brands)
 
 const App = () => (
     // the header displays on every single page, b/c it's not on any route

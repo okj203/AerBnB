@@ -60,32 +60,82 @@
   border-color: rgb(189, 30, 89);
 }
 
-#header-img.login-dropdown {
-  // <img className="login-dropdown" src={window.loginIMG} alt="loginIMG" />
+#header-img.login-dropdown, .header-name {
     cursor: pointer;
     width: 45px;
     position: relative;
-    padding-top: 11.5px;
+    margin-right: 45px;
 }
 
 .login-signup {
-  // display: none;
+  background-color: white;
+  border-radius: 150px;
+  padding: 7px 0;
   position: absolute;
   color: black;
 	font-weight: normal;
-	border-radius: 3px;
+	border-radius: 10px;
 	transition: background-color 0.3s;
-	text-transform: uppercase;
-	font-size: 15px;
-	text-align: right;
+	font-size: 13.3333px;
+  text-align: left;
+  right: 40px;
+  top: 110px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .login-dropdown:hover > .login-signup {
-  display: block;
+  display: block; 
+}
+
+.login-signup > button {
+  padding: 10px;
 }
 
 .login-signup > button:hover {
   display: block;
-  background-color: #ff0066;
+  background-color: lightgray;
+}
+
+// .header-name {
+//   cursor: pointer;
+//   position: relative;
+//   padding-top: 35px;
+//   text-align: right;
+//   margin-right: 45px;
+// }
+
+i.fas.fa-address-card {
+  font-size: xx-large;
+}
+
+i.far.fa-address-card {
+  font-size: xx-large;
+}
+
+.logout-button {
+  // display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 150px;
   padding: 10px;
+  position: absolute;
+  color: black;
+	font-weight: normal;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+	font-size: 13.3333px;
+  text-align: left;
+  right: 38px;
+  top: 105px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.header-name:hover > .logout-button {
+  display: block;
+}
+
+.logout-button:hover {
+  background-color: lightgray;
 }
