@@ -41,7 +41,7 @@ class Greeting extends React.Component {
             <div className="flex">
                 <img id="header-img" className="aerbnb-logo" src={window.logoIMG} alt="AerBnB Logo" />
                     <button className="header-name">
-                        <i class="fas fa-address-card"></i>
+                        <i className="fas fa-address-card"></i>
                         {/* {this.props.currentUser.username} */}
                     </button>
                 <button className="logout-button" onClick={this.props.logout}>Log Out</button>
@@ -64,7 +64,7 @@ class Greeting extends React.Component {
                             <img id="header-img" className="aerbnb-logo" src={window.logoIMG} alt="AerBnB Logo" />
 
                             <button id="header-img" className="login-dropdown" onClick={this.showDropdown}>
-                                <i class="far fa-address-card"></i>
+                                <i className="far fa-address-card"></i>
                             </button>
                         </div>
                         </header>

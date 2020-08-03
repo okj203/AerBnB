@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_025250) do
+ActiveRecord::Schema.define(version: 2020_08_02_222847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "check_in", null: false
+    t.datetime "check_out", null: false
+    t.integer "num_guests", null: false
+    t.integer "spot_id", null: false
+    t.integer "guest_id", null: false
+    t.integer "host_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_bookings_on_guest_id", unique: true
+    t.index ["spot_id"], name: "index_bookings_on_spot_id", unique: true
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.text "body", null: false
@@ -35,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_07_31_025250) do
     t.string "city", null: false
     t.string "country", null: false
     t.float "lng", null: false
-    t.float "ltd", null: false
+    t.float "lat", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["host_id"], name: "index_spots_on_host_id", unique: true

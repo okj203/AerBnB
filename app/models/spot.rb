@@ -11,12 +11,12 @@
 #  city        :string           not null
 #  country     :string           not null
 #  lng         :float            not null
-#  ltd         :float            not null
+#  lat         :float            not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 class Spot < ApplicationRecord
-    validates :spot_name, :description, :price,  :lng, :lat, :address, :city, :country, presence: true
+    validates :spot_name, :description, :price, :lng, :lat, :address, :city, :country, presence: true
 
     belongs_to :host,
     class_name: :User,
@@ -26,14 +26,14 @@ class Spot < ApplicationRecord
     class_name: :Review,
     foreign_key: :spot_id 
 
-    # has_many :bookings,
-    # class_name: :Booking,
-    # foreign_key: :spot_id
+    has_many :bookings,
+    class_name: :Booking,
+    foreign_key: :spot_id
 
-    # has_many_attached :photos
+    has_many_attached :photos
 
-    # def self.filtered_search(query)
-    #     result = self.where("city LIKE ?", "%#{query}%")
-    #     return result
-    # end
+    def self.filtered(query)
+        filtered_result = self.where("city LIKE ?", "%#{query}%")
+        return filtered_result
+    end
 end
