@@ -57,10 +57,10 @@ class Home extends React.Component {
               <div className="introducing">AerBnB</div>
               <br />
               <h1 className="olympian">
-                Go out and begin
+                Get out and begin
                 <br />
                 your journey -<br />
-                one destination at a time.
+                One destination at a time.
               </h1>
               <br />
               <div className="medalist">

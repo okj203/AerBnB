@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import spotsReducer from "./spot_reducer";
+import spotsReducer from "./spots_reducer";
 
 const entitiesReducer = combineReducers({
-    spots: spotsReducer
+  spots: spotsReducer,
 });
 
 export default entitiesReducer;
