@@ -37,6 +37,15 @@ class Home extends React.Component {
     const mid = window.mid;
     const right = window.right;
 
+    const scranton = window.scranton;
+    const oceancity = window.oceancity;
+    const newport = window.newport;
+    const lakeplacid = window.lakeplacid;
+    const kingston = window.kingston;
+    const woodstock = window.woodstock;
+    const easthampton = window.easthampton;
+    const hudson = window.hudson;
+
     return (
       <div className="home-container">
         <div>
@@ -48,6 +57,7 @@ class Home extends React.Component {
           </aside>
         </div>
         <Modal />
+
         <header id="background">
           <Link to="/" className="header-link"></Link>
           <GreetingContainer />
@@ -125,7 +135,139 @@ class Home extends React.Component {
             </p>
           </div>
         </div>
-        <div>{this.spots()}</div>
+        <h3 className="escape-text">Your next escape</h3>
+        <div className="escape">
+          <div className="escape-1">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={scranton} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>Scranton</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="escape-2">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={newport} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>Newport</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="escape-3">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={kingston} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>Kingston</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="escape-4">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={easthampton} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>East Hampton</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="escape-5">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={oceancity} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>Oceancity</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="escape-6">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={lakeplacid} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>Lakeplacid</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="escape-7">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={woodstock} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>Woodstock</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="escape-8">
+            <div className="escape-place">
+              <div className="escape-place-left">
+                <img src={hudson} />
+              </div>
+              <div className="escape-place-right">
+                <div className="escape-place-name">
+                  <h5>Hudson</h5>
+                  <p>
+                    <span>$718</span>/night avg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer className="home-footer"></footer>
+        {/* <div>{this.spots()}</div> */}
       </div>
     );
   }

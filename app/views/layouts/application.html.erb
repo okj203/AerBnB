@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
@@ -13,6 +14,15 @@
     window.left = "<%=image_url('left.png')%>"
     window.mid = "<%=image_url('mid.png')%>"
     window.right = "<%=image_url('right.png')%>"
+
+    window.scranton = "<%=image_url('scranton.png')%>"
+    window.oceancity = "<%=image_url('oceancity.png')%>"
+    window.newport = "<%=image_url('newport.png')%>"
+    window.lakeplacid = "<%=image_url('lakeplacid.png')%>"
+    window.kingston = "<%=image_url('kingston.png')%>"
+    window.woodstock = "<%=image_url('woodstock.png')%>"
+    window.easthampton = "<%=image_url('easthampton.png')%>"
+    window.hudson = "<%=image_url('hudson.png')%>"
   </script>
   </head>
 

@@ -13,3 +13,38 @@
   font-weight: lighter;
   color: grey;
 }
+
+.indiv-spot {
+  width: 60%;
+  margin-left: 40px;
+  padding: 5px;
+}
+
+.indiv-spot-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 5px;
+}
+
+.indiv-spot:hover {
+  transform: scale(1.01);
+  transition: all 0.7s ease;
+}
+
+.spot-price {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: -6%;
+  margin-left: 85%;
+}
+
+.indiv-photo-index {
+  border-radius: 5px;
+  outline: none;
+}
+
+.star {
+  color: rgb(242, 88, 88);
+}

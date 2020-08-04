@@ -4,6 +4,7 @@ import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import HomeContainer from "./home/home_container";
 import SpotsIndexContainer from "./spots/spot_index_container";
 import SpotContainer from "./spots/spot/spot_container";
+import SearchContainer from "./search/search_container";
 
 import fontawesome from "@fortawesome/fontawesome";
 import regular from "@fortawesome/free-regular-svg-icons";
@@ -24,6 +25,7 @@ const App = () => (
       <Route exact path="/" component={HomeContainer} />
       <Route exact path="/spots" component={SpotsIndexContainer} />
       <Route path={`/spots/:spotId`} component={SpotContainer} />
+      <Route path={`/search`} component={SearchContainer} />
     </Switch>
   </div>
 );
