@@ -21,13 +21,13 @@ class SpotIndex extends React.Component {
   render() {
     return (
       <div className="spots-div">
+        <div className="spots-left">
+          <ul className="spots-list">{this.spotsIndex()}</ul>
+        </div>
         <div className="spots-right">
           <div className="google-map">
             <Map spots={this.props.spots} />
           </div>
-        </div>
-        <div className="spots-left">
-          <ul className="spots-list">{this.spotsIndex()}</ul>
         </div>
       </div>
     );

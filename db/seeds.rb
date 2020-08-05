@@ -15,6 +15,7 @@ Spot.destroy_all
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'listings.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
+  p row["price"]
   u = User.create!(username: Faker::Name.name, birthday: Faker::Date.between(from: '1930-01-01', to: '2020-01-01'),email: Faker::Internet.email, password: "hunter2", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
   Spot.create!(host_id: u.id, spot_name: Faker::App.name, description: row["description"], price: row["price"][1..-1].to_f, lat: row["latitude"].to_f, lng: row["longitude"].to_f, city: "New York", country: "USA", address: Faker::Address.street_address)
 end

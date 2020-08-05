@@ -116,11 +116,36 @@ class Home extends React.Component {
           </div>
         </div>
 
+        <div className="online-experience">
+          <h2>Online Experiences</h2>
+          <div className="online-experience-row">
+            <p>
+              Meet people all over the world while trying something new.
+              <br />
+              Join live, interactive video sessions led by one-of-a-kind hosts
+              <br />
+              —all without leaving home.
+            </p>
+            <Link to="/spots">
+              <button className="online-experience-button">Explore All</button>
+            </Link>
+          </div>
+
+          <div className="exp-container">
+            <div className="exp-left">
+              <div className="exp-left1">
+                <img src="" alt="" />
+              </div>
+              <span className="exp-description"></span>
+            </div>
+            <div className="exp-right"></div>
+          </div>
+        </div>
+
         <div className="hero">
           <div className="hero-left">
             <h1>
-              {" "}
-              Host a hero: help house frontline responders around the world{" "}
+              Host a hero: help house frontline responders around the world
             </h1>
             <Link to="/spots">
               <button className="hero-button">Get involved</button>
@@ -146,7 +171,7 @@ class Home extends React.Component {
                 <div className="escape-place-name">
                   <h5>Scranton</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$700</span>/night avg.
                   </p>
                 </div>
               </div>
@@ -162,7 +187,7 @@ class Home extends React.Component {
                 <div className="escape-place-name">
                   <h5>Newport</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$120</span>/night avg.
                   </p>
                 </div>
               </div>
@@ -178,7 +203,7 @@ class Home extends React.Component {
                 <div className="escape-place-name">
                   <h5>Kingston</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$200</span>/night avg.
                   </p>
                 </div>
               </div>
@@ -194,7 +219,7 @@ class Home extends React.Component {
                 <div className="escape-place-name">
                   <h5>East Hampton</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$920</span>/night avg.
                   </p>
                 </div>
               </div>
@@ -208,9 +233,9 @@ class Home extends React.Component {
               </div>
               <div className="escape-place-right">
                 <div className="escape-place-name">
-                  <h5>Oceancity</h5>
+                  <h5>Ocean City</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$330</span>/night avg.
                   </p>
                 </div>
               </div>
@@ -224,9 +249,9 @@ class Home extends React.Component {
               </div>
               <div className="escape-place-right">
                 <div className="escape-place-name">
-                  <h5>Lakeplacid</h5>
+                  <h5>Lake Placid</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$410</span>/night avg.
                   </p>
                 </div>
               </div>
@@ -242,7 +267,7 @@ class Home extends React.Component {
                 <div className="escape-place-name">
                   <h5>Woodstock</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$175</span>/night avg.
                   </p>
                 </div>
               </div>
@@ -258,7 +283,7 @@ class Home extends React.Component {
                 <div className="escape-place-name">
                   <h5>Hudson</h5>
                   <p>
-                    <span>$718</span>/night avg.
+                    <span>$210</span>/night avg.
                   </p>
                 </div>
               </div>

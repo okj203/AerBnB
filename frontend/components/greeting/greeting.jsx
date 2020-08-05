@@ -35,7 +35,6 @@ class Greeting extends React.Component {
         >
           Log in
         </button>
-        <br />
         <button
           className="login-signup-ele"
           onClick={() => this.props.openModal("signup")}

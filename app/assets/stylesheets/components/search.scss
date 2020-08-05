@@ -14,9 +14,14 @@
 
 .search-button {
   cursor: pointer;
+  position: absolute;
   color: white;
-  //   width: 100px;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
   text-align: center;
+  margin-top: 3px;
   background: rgb(61, 91, 224);
   border-radius: 100%;
 }
@@ -26,11 +31,13 @@
 }
 
 .location {
-  margin-left: 20px;
+  margin-left: 55px;
 }
 
 .search {
   font-size: 13.5px;
   margin-left: 0px;
-  position: relative;
+  position: absolute;
+  margin-left: 70px;
+  margin-top: 22px;
 }
