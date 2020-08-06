@@ -8,6 +8,7 @@ import Spot from "./spot";
 
 const mapState = (state, ownProps) => ({
   spot: state.entities.spots[ownProps.match.params.spotId],
+  // state has to be normalized cf. spot_reducer;
 });
 
 const mapDispatch = (dispatch) => ({

@@ -1,6 +1,6 @@
 import React from "react";
 import SpotIndexItem from "./spot_index_item";
-import Map from "../map/spot_map";
+import SpotMap from "../map/spot_map";
 
 class SpotIndex extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class SpotIndex extends React.Component {
         </div>
         <div className="spots-right">
           <div className="google-map">
-            <Map spots={this.props.spots} />
+            <SpotMap spots={this.props.spots} />
           </div>
         </div>
       </div>

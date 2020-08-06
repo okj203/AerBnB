@@ -1,5 +1,4 @@
 import React from "react";
-// import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 class SpotMap extends React.Component {
   constructor(props) {
@@ -23,4 +22,5 @@ class SpotMap extends React.Component {
     );
   }
 }
+
 export default SpotMap;
