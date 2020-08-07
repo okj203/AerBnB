@@ -1211,6 +1211,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_signup_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../session/signup_container */ "./frontend/components/session/signup_container.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _review_review_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../review/review_container */ "./frontend/components/review/review_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1232,6 +1233,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -1322,7 +1324,7 @@ var mapDispatch = function mapDispatch(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapState, mapDispatch)(Modal));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapState, mapDispatch)(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["withRouter"])(Modal)));
 
 /***/ }),
 
@@ -1394,6 +1396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1422,9 +1426,14 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ReviewForm);
 
   function ReviewForm(props) {
+    var _this;
+
     _classCallCheck(this, ReviewForm);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = _this.props.review;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ReviewForm, [{
@@ -1433,9 +1442,144 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       this.props.clearErrors();
     }
   }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      if (this.props.review.guest_id) {
+        this.props.createReview(this.state).then(this.props.fetchSpot(this.state.spot_id)).then(this.props.fetchReviews(this.state.spot_id)).then(this.props.clearErrors()).then(this.clearReview());
+      } else {
+        this.props.openModal("login");
+      }
+    }
+  }, {
+    key: "clearReview",
+    value: function clearReview() {
+      var writeReview = Array.from(document.getElementsByClassName("review-stars"));
+      writeReview.forEach(function (star) {
+        return star.checked = false;
+      });
+      var textArea = document.getElementById("review-textarea");
+      textArea.className = "review-no-body-error";
+      this.setState(this.props.review);
+    } //   renderErrors() {
+    //     if (this.props.errors.length) {
+    //       let textArea = document.getElementById("review-textarea");
+    //       textArea.className = "review-yes-body-error";
+    //       return (
+    //         <div className="review-errors">
+    //           {this.props.errors.map((error, idx) => (
+    //             <p className="error" key={idx}>
+    //               {error}
+    //             </p>
+    //           ))}
+    //         </div>
+    //       );
+    //     } else {
+    //       return null;
+    //     }
+    //   }
+
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "handleRating",
+    value: function handleRating(rating) {
+      return this.setState({
+        rating: rating
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      var _this3 = this;
+
+      // let errors = this.renderErrors();
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "review-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-top"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Leave a review")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-mid"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reviews-ratings"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ratings"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "review-stars",
+        type: "radio",
+        id: "star1",
+        name: "rating",
+        value: this.state.rating,
+        onClick: function onClick() {
+          return _this3.handleRating(1.0);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "star1"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "review-stars",
+        type: "radio",
+        id: "star2",
+        name: "rating",
+        value: this.state.rating,
+        onClick: function onClick() {
+          return _this3.handleRating(2.0);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "star2"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "review-stars",
+        type: "radio",
+        id: "star3",
+        name: "rating",
+        value: this.state.rating,
+        onClick: function onClick() {
+          return _this3.handleRating(3.0);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "star3"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "review-stars",
+        type: "radio",
+        id: "star4",
+        name: "rating",
+        value: this.state.rating,
+        onClick: function onClick() {
+          return _this3.handleRating(4.0);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "star4"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "review-stars",
+        type: "radio",
+        id: "star5",
+        name: "rating",
+        value: this.state.rating,
+        onClick: function onClick() {
+          return _this3.handleRating(5.0);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "star5"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "review-text",
+        className: "review-no-body-error",
+        onChange: this.update("body"),
+        placeholder: "Tell us about your stay",
+        value: this.state.body
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-bottom"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "review-button",
+        type: "submit",
+        onClick: this.handleSubmit
+      }, "Submit review")));
     }
   }]);
 
@@ -1902,6 +2046,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _map_single_spot_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../map/single_spot_map */ "./frontend/components/map/single_spot_map.js");
+/* harmony import */ var _review_review_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../review/review_container */ "./frontend/components/review/review_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1923,6 +2068,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2009,6 +2155,10 @@ var Spot = /*#__PURE__*/function (_React$Component) {
       }), "Smoke alarm"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-cocktail"
       }), "Bar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-review"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_review_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        spot: this.props.spot
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-map"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Location"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_single_spot_map__WEBPACK_IMPORTED_MODULE_1__["default"], null))) : null;
     }

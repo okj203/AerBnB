@@ -5,6 +5,7 @@ import LoginContainer from "../session/login_container";
 import SignupContainer from "../session/signup_container";
 import { clearErrors } from "../../actions/session_actions";
 import ReviewContainer from "../review/review_container";
+import { withRouter } from "react-router-dom";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -61,4 +62,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(Modal);
+export default connect(mapState, mapDispatch)(withRouter(Modal));

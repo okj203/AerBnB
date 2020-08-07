@@ -1,5 +1,6 @@
 import React from "react";
 import SingleSpotMap from "../../map/single_spot_map";
+import ReviewContainer from "../../review/review_container";
 
 class Spot extends React.Component {
   constructor(props) {
@@ -97,6 +98,9 @@ class Spot extends React.Component {
               <i className="fas fa-cocktail"></i>Bar
             </div>
           </div>
+        </div>
+        <div className="create-review">
+          <ReviewContainer spot={this.props.spot} />
         </div>
         <div className="show-map">
           <h2>Location</h2>
