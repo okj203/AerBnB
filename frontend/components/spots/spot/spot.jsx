@@ -30,22 +30,27 @@ class Spot extends React.Component {
     // } = this.props.spot;
     return spot ? (
       <div className="spot-show-container">
-        <div className="spot-show-name">
-          <h2>{spot.spot_name}</h2>
-        </div>
-        <div className="spot-show-rating">
-          <div className="star">
-            <i className="fas fa-star"></i>
-            {randomRating}
+        <div className="spot-top">
+          <div className="spot-show-name">
+            <h2>{spot.spot_name}</h2>
+          </div>
+          <div className="spot-show-rating">
+            <div className="star">
+              <i className="fas fa-star"></i>
+              {randomRating}
+            </div>
+            <div className="spot-city">{spot.city}</div>
           </div>
         </div>
+
         <div className="spot-show-desc">
-          <h2>Spot description</h2>
-          <p>{spot.description}</p>
+          <h2>Description</h2>
+          <p className="spot-show-desc-p">{spot.description}</p>
         </div>
 
         <div className="spot-show-info">
           <h2>Sleeping arrangement</h2>
+
           <div className="spot-show-info-container">
             <div className="spot-bedroom">
               <i className="fas fa-bed"></i>
@@ -64,38 +69,40 @@ class Spot extends React.Component {
         </div>
         <div className="spot-show-amenities">
           <h2>Amenities</h2>
-          <div className="amenities-1">
-            <div>
-              <i className="fas fa-wifi"></i>Wifi
+          <div className="amenities">
+            <div className="amenities-1">
+              <div>
+                <i className="fas fa-wifi"></i>Wifi
+              </div>
+              <div>
+                <i className="fas fa-car"></i>Free parking
+              </div>
+              <div>
+                <i className="fas fa-amazon"></i>TV
+              </div>
+              <div>
+                <i className="fas fa-burn"></i>Heating
+              </div>
+              <div>
+                <i className="fas fa-fire-extinguisher"></i>Fire extinguisher
+              </div>
             </div>
-            <div>
-              <i className="fas fa-car"></i>Free parking
-            </div>
-            <div>
-              <i className="fas fa-amazon"></i>Amazon TV
-            </div>
-            <div>
-              <i className="fas fa-burn"></i>Heating
-            </div>
-            <div>
-              <i className="fas fa-fire-extinguisher"></i>Fire extinguisher
-            </div>
-          </div>
-          <div className="amenities-2">
-            <div>
-              <i className="fas fa-kitchen"></i>Kitchen
-            </div>
-            <div>
-              <i className="fas fa-swimming-pool"></i>Pool
-            </div>
-            <div>
-              <i className="fas fa-fan"></i>Air conditioning
-            </div>
-            <div>
-              <i className="fas fa-bell"></i>Smoke alarm
-            </div>
-            <div>
-              <i className="fas fa-cocktail"></i>Bar
+            <div className="amenities-2">
+              <div>
+                <i className="fas fa-bell"></i>Kitchen
+              </div>
+              <div>
+                <i className="fas fa-bell"></i>Pool
+              </div>
+              <div>
+                <i className="fas fa-bell"></i>Air conditioning
+              </div>
+              <div>
+                <i className="fas fa-bell"></i>Smoke alarm
+              </div>
+              <div>
+                <i className="fas fa-bell"></i>Bar
+              </div>
             </div>
           </div>
         </div>

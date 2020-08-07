@@ -61,3 +61,56 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.spot-show-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 100px;
+}
+
+.spot-top {
+  margin-bottom: 50px;
+}
+
+.spot-show-rating {
+  font-size: 15px;
+}
+
+.spot-show-desc-p {
+  font-size: 15px;
+}
+
+.spot-show-info {
+  height: 300px;
+  width: 60%;
+  margin-top: 50px;
+}
+
+.spot-show-info-container {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.spot-bedroom,
+.spot-common {
+  height: 80px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: left;
+  padding: 20px;
+  font-size: 15px;
+}
+
+.amenities {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  font-size: 18px;
+  font-weight: 200;
+}
