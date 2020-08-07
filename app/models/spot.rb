@@ -30,10 +30,17 @@ class Spot < ApplicationRecord
     class_name: :Booking,
     foreign_key: :spot_id
 
-    # has_many_attached :photos 
+    has_many_attached :photos 
     # active storage required
     # AWS
     # for user to be able to upload photos & videos
+
+    def self.in_bounds(bounds)
+        self.where("lat < ?", bounds[:northEast][:lat])
+            .where("lat > ?", bounds[:southWest][:lat])
+            .where("lng > ?", bounds[:southWest][:lng])
+            .where("lng < ?", bounds[:northWest][:lng])
+    end
 
     def self.filtered(query)
         filtered_result = self.where("city LIKE ?", "%#{query}%")
