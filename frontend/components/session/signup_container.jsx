@@ -6,7 +6,6 @@ import SessionForm from './session_form';
 import { closeModal } from '../../actions/modal_actions'
 
 const mapState = ({ errors }) => {
-    // debugger
     return {
         errors: errors.session,
         formType: 'signup',
@@ -15,7 +14,6 @@ const mapState = ({ errors }) => {
 };
 
 const mapDispatch = dispatch => {
-    debugger
     return {
         action: user => dispatch(signup(user)),
         closeModal: () => dispatch(closeModal())
