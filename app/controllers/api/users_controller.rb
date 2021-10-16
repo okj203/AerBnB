@@ -10,13 +10,11 @@ class Api::UsersController < ApplicationController
                 birthday: params[:user][:birthday], # 1990-08-22 / yr-mth-day
                 email: params[:user][:email]
                 )
-                # debugger
+
         if @user.save
-            # debugger
             login!(@user)
             render "api/users/show"
         else
-            # debugger
             render json: @user.errors.full_messages, status: 404
             # doesn't work- nesting prob
             # render json: {

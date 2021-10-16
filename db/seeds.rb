@@ -9,7 +9,7 @@ require 'csv'
 require 'faker'
 # require 'byebug'
 # debugger
-User.destroy_all # clear out user db
+User.destroy_all 
 Review.destroy_all
 Spot.destroy_all
 
@@ -20,6 +20,8 @@ csv.each do |row|
   u = User.create!(username: Faker::Name.name, birthday: Faker::Date.between(from: '1930-01-01', to: '2020-01-01'),email: Faker::Internet.email, password: "hunter2", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
   Spot.create!(host_id: u.id, spot_name: Faker::App.name, description: row["description"], price: row["price"][1..-1].to_f, lat: row["latitude"].to_f, lng: row["longitude"].to_f, city: "New York", country: "USA", address: Faker::Address.street_address)
 end
+
+# Demo User
 User.create!({username: 'u33', password: '123123', email: 'u33@email.com', first_name: 'u33', last_name: 'u33', birthday: '1990-01-01'})
 
 # create! to get loud error msg;
