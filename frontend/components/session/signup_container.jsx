@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import SessionForm from './session_form';  
+import { closeModal } from '../../actions/modal_actions'
 
 const mapState = ({ errors }) => {
     // debugger
@@ -14,8 +15,10 @@ const mapState = ({ errors }) => {
 };
 
 const mapDispatch = dispatch => {
+    debugger
     return {
-        action: user => dispatch(signup(user))
+        action: user => dispatch(signup(user)),
+        closeModal: () => dispatch(closeModal())
     }
 }
 

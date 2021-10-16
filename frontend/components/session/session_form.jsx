@@ -21,6 +21,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    debugger
     this.props.action(user).then(this.props.closeModal);
 
     // .then(() => {this.props.history.push("/")});
@@ -94,6 +95,7 @@ class SessionForm extends React.Component {
       );
 
     const header = this.props.formType === "login" ? "LOG IN" : "SIGN UP";
+
     // const errors = this.renderErrors();
     return (
       <div className="login-container">
@@ -135,16 +137,12 @@ class SessionForm extends React.Component {
             <button className="session-submit" value={this.props.formType}>
               {header}
             </button>
-            <button
+            {header !== "SIGN UP" ? (<button
               className="session-submit"
               onClick={() =>
                 this.props
                   .login({ username: "u33", password: "123123" })
-                  .then(this.props.closeModal)
-              }
-            >
-              Demo
-            </button>
+                  .then(this.props.closeModal)}>Demo</button>) : <></>}
           </div>
         </form>
       </div>
