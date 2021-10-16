@@ -5,11 +5,13 @@ import HomeContainer from "./home/home_container";
 import SpotsIndexContainer from "./spots/spot_index_container";
 import SpotContainer from "./spots/spot/spot_container";
 import SearchContainer from "./search/search_container";
+import ProfileShowContainer from "./profile/profile_show_container";
+import { AuthRoute, ProtectedRoute } from "../util/route_utiil";
 
-import fontawesome from "@fortawesome/fontawesome";
-import regular from "@fortawesome/free-regular-svg-icons";
-import solid from "@fortawesome/free-solid-svg-icons";
-import brands from "@fortawesome/free-brands-svg-icons";
+// import fontawesome from "@fortawesome/fontawesome";
+// import regular from "@fortawesome/free-regular-svg-icons";
+// import solid from "@fortawesome/free-solid-svg-icons";
+// import brands from "@fortawesome/free-brands-svg-icons";
 
 // fontawesome.library.add(regular)
 // fontawesome.library.add(solid)
@@ -23,6 +25,7 @@ const App = () => (
   <div>
     <Switch>
       <Route exact path="/" component={HomeContainer} />
+      <Route exact path="/users/:userId" component={ProfileShowContainer}/>
       <Route exact path="/spots" component={SpotsIndexContainer} />
       <Route path={`/spots/:spotId`} component={SpotContainer} />
       <Route path={`/search`} component={SearchContainer} />

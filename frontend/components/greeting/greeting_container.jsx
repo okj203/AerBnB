@@ -4,7 +4,7 @@ import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 import { openModal } from '../../actions/modal_actions'
 
-const mapState = ({session}) => {
+const mapState = ({ session }) => {
     return {
         currentUser: session.currentUser
     }
