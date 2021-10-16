@@ -1,15 +1,6 @@
 class Api::UsersController < ApplicationController
-    # skip_before_action :verify_authenticity_token
-    
     def create
-        @user = User.new(
-                username: params[:user][:username], 
-                password: params[:user][:password],
-                first_name: params[:user][:first_name],
-                last_name: params[:user][:last_name],
-                birthday: params[:user][:birthday], # 1990-08-22 / yr-mth-day
-                email: params[:user][:email]
-                )
+        @user = User.new(user_params)
 
         if @user.save
             login!(@user)
@@ -24,5 +15,16 @@ class Api::UsersController < ApplicationController
             # works:
             # render json: ["Invalid Credentials"], status: 404
         end
+    end
+
+    def show
+        @user = User.find(params[:id])
+        render "api/users/show" # ex. /api/users/404 
+    end
+
+    private 
+
+    def user_params
+        params.require(:user).permit(:username, :password, :first_name, :last_name, :birthday, :email)
     end
 end

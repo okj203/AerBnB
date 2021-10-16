@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 import Dropdown from "react-dropdown";
 import SearchContainer from "../search/search_container";
 
@@ -45,6 +46,10 @@ class Greeting extends React.Component {
     );
   }
 
+  gotoProfile(){
+    this.props.history.push(`/users/${this.props.currentUser.id}`)
+  }
+
   personalGreeting() {
     return (
       <hgroup className="header-group">
@@ -55,9 +60,8 @@ class Greeting extends React.Component {
             src={window.logoIMG}
             alt="AerBnB Logo"
           />
-          <button className="header-name">
+          <button className="header-name" onClick={this.gotoProfile.bind(this)}>
             <i className="fas fa-address-card"></i>
-            {/* {this.props.currentUser.username} */}
           </button>
           <button className="logout-button" onClick={this.props.logout}>
             Log Out
@@ -108,4 +112,4 @@ class Greeting extends React.Component {
   }
 }
 
-export default Greeting;
+export default withRouter(Greeting);
