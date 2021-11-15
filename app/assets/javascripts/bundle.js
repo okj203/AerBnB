@@ -426,31 +426,28 @@ __webpack_require__.r(__webpack_exports__);
 // fontawesome.library.add(brands)
 
 var App = function App() {
-  return (
-    /*#__PURE__*/
-    // the header displays on every single page, b/c it's not on any route
-    // but depending on which route, renders different page
-    // by default of hashrouter '/' is homepage (#/)
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-      exact: true,
-      path: "/",
-      component: _home_home_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-      exact: true,
-      path: "/users/:userId",
-      component: _profile_profile_show_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-      exact: true,
-      path: "/spots",
-      component: _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-      path: "/spots/:spotId",
-      component: _spots_spot_spot_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-      path: "/search",
-      component: _search_search_container__WEBPACK_IMPORTED_MODULE_6__["default"]
-    })))
-  );
+  // the header displays on every single page, b/c it's not on any route
+  // but depending on which route, renders different page
+  // by default of hashrouter '/' is homepage (#/)
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_utiil__WEBPACK_IMPORTED_MODULE_8__["ProtectedRoute"], {
+    exact: true,
+    path: "/users/:userId",
+    component: _profile_profile_show_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/spots",
+    component: _spots_spot_index_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/spots/:spotId",
+    component: _spots_spot_spot_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/search",
+    component: _search_search_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/",
+    component: _home_home_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -2778,7 +2775,6 @@ __webpack_require__.r(__webpack_exports__);
 var sessionErrorsReducer = function sessionErrorsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  // debugger
   Object.freeze(state);
 
   switch (action.type) {
@@ -2819,12 +2815,10 @@ var _nullUser = Object.freeze({
 var sessionReducer = function sessionReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  // debugger
   Object.freeze(state);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      // console.log("hello-2")
       return Object.assign({}, {
         currentUser: action.currentUser
       });
@@ -2943,7 +2937,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+ // renders component if logged out, otherwise redirects to the root url
 
 var Auth = function Auth(_ref) {
   var Component = _ref.component,
@@ -2963,7 +2957,9 @@ var Auth = function Auth(_ref) {
 
 var handleClick = function handleClick() {
   return Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])("login");
-};
+}; // renders component if logged in, otherwise redirects to the login page
+// how to open modal right after redirecting user to the home page?
+
 
 var Protected = function Protected(_ref2) {
   var Component = _ref2.component,
@@ -2974,18 +2970,23 @@ var Protected = function Protected(_ref2) {
     path: path,
     exact: exact,
     render: function render(props) {
-      return loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, props) : handleClick();
+      return loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, props) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Redirect"], {
+        to: "/"
+      });
     }
   });
-};
+}; // access the Redux state to check if the user is logged in
+
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    loggedIn: Boolean(state.session.id)
+    loggedIn: state.session.id === null ? false : Boolean(state.session.currentUser.id)
   };
-};
+}; // connect Auth to the redux state
 
-var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(Auth));
+
+var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth)); // connect Protected to the redux state
+
 var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
 
 /***/ }),

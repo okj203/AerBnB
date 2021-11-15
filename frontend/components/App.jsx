@@ -17,20 +17,19 @@ import { AuthRoute, ProtectedRoute } from "../util/route_utiil";
 // fontawesome.library.add(solid)
 // fontawesome.library.add(brands)
 
-const App = () => (
+const App = () => {
   // the header displays on every single page, b/c it's not on any route
   // but depending on which route, renders different page
   // by default of hashrouter '/' is homepage (#/)
-
-  <div>
+  return (<div>
     <Switch>
-      <Route exact path="/" component={HomeContainer} />
-      <Route exact path="/users/:userId" component={ProfileShowContainer}/>
+      <ProtectedRoute exact path="/users/:userId" component={ProfileShowContainer}/>
       <Route exact path="/spots" component={SpotsIndexContainer} />
       <Route path={`/spots/:spotId`} component={SpotContainer} />
       <Route path={`/search`} component={SearchContainer} />
+      <Route exact path="/" component={HomeContainer} />
     </Switch>
-  </div>
-);
+  </div>)
+};
 
 export default App;
