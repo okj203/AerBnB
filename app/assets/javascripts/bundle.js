@@ -115,6 +115,56 @@ var closeModal = function closeModal() {
 
 /***/ }),
 
+/***/ "./frontend/actions/review_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/review_actions.js ***!
+  \********************************************/
+/*! exports provided: RECEIVE_REVIEW, RECEIVE_REVIEWS, receiveReview, receiveReviews, createReview, fetchReviews */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
+/* harmony import */ var _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/review_api_util */ "./frontend/util/review_api_util.js");
+
+var RECEIVE_REVIEW = "RECEIVE_REVIEW";
+var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
+var receiveReview = function receiveReview(review) {
+  return {
+    type: RECEIVE_REVIEW,
+    review: review
+  };
+};
+var receiveReviews = function receiveReviews(reviews) {
+  return {
+    type: RECEIVE_REVIEWS,
+    reviews: reviews
+  };
+};
+var createReview = function createReview(review) {
+  return function (dispatch) {
+    return _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["createReview"](review).then(function (review) {
+      return dispatch(receiveReview(review));
+    }, function (error) {
+      return dispatch(receiveReviewErrors(error.responseJSON));
+    });
+  };
+};
+var fetchReviews = function fetchReviews(spotId) {
+  return function (dispatch) {
+    return _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"](spotId).then(function (reviews) {
+      return dispatch(receiveReviews(reviews));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/search_action.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/search_action.js ***!
@@ -228,31 +278,23 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/spot_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_SPOTS, RECEIVE_SPOT, RECEIVE_REVIEW, RECEIVE_REVIEWS, receiveSpots, receiveSpot, receiveReview, receiveReviews, fetchSpots, fetchSpot, createSpot, updateSpot, createReview, fetchReviews */
+/*! exports provided: RECEIVE_SPOTS, RECEIVE_SPOT, receiveSpots, receiveSpot, fetchSpots, fetchSpot, createSpot, updateSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOTS", function() { return RECEIVE_SPOTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOT", function() { return RECEIVE_SPOT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEWS", function() { return RECEIVE_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSpots", function() { return receiveSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSpot", function() { return receiveSpot; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReviews", function() { return receiveReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpots", function() { return fetchSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSpot", function() { return createSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.jsx");
 
 var RECEIVE_SPOTS = "RECEIVE_SPOTS";
 var RECEIVE_SPOT = "RECEIVE_SPOT";
-var RECEIVE_REVIEW = "RECEIVE_REVIEW";
-var RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 var receiveSpots = function receiveSpots(spots) {
   // debugger
   return {
@@ -264,18 +306,6 @@ var receiveSpot = function receiveSpot(spot) {
   return {
     type: RECEIVE_SPOT,
     spot: spot
-  };
-};
-var receiveReview = function receiveReview(review) {
-  return {
-    type: RECEIVE_REVIEW,
-    review: review
-  };
-};
-var receiveReviews = function receiveReviews(reviews) {
-  return {
-    type: RECEIVE_REVIEWS,
-    reviews: reviews
   };
 };
 var fetchSpots = function fetchSpots() {
@@ -303,22 +333,6 @@ var updateSpot = function updateSpot(spot) {
   return function (dispatch) {
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["updateSpot"](spot).then(function (spot) {
       return dispatch(receiveSpot(spot));
-    });
-  };
-};
-var createReview = function createReview(review) {
-  return function (dispatch) {
-    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["createReview"](review).then(function (review) {
-      return dispatch(receiveReview(review));
-    }, function (error) {
-      return dispatch(receiveReviewErrors(error.responseJSON));
-    });
-  };
-};
-var fetchReviews = function fetchReviews(spotId) {
-  return function (dispatch) {
-    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"](spotId).then(function (reviews) {
-      return dispatch(receiveReviews(reviews));
     });
   };
 };
@@ -1440,9 +1454,11 @@ var mapStateToProps = function mapStateToProps(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
-/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_form */ "./frontend/components/review/review_form.jsx");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _util_review_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/review_api_util */ "./frontend/util/review_api_util.js");
+/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_form */ "./frontend/components/review/review_form.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -1466,21 +1482,21 @@ var mapDispatch = function mapDispatch(dispatch) {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchSpot"])(spotId));
     },
     createReview: function createReview(review) {
-      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["createReview"])(review));
+      return dispatch(Object(_util_review_api_util__WEBPACK_IMPORTED_MODULE_2__["createReview"])(review));
     },
     fetchReviews: function fetchReviews(id) {
-      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["fetchReviews"])(id));
+      return dispatch(Object(_util_review_api_util__WEBPACK_IMPORTED_MODULE_2__["fetchReviews"])(id));
     },
     openModal: function openModal() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])("login"));
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])("login"));
     },
     clearErrors: function clearErrors() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["clearErrors"])());
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_5__["clearErrors"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapState, mapDispatch)(_review_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapState, mapDispatch)(_review_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -2662,7 +2678,9 @@ function modalReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2675,10 +2693,10 @@ var reviewsReducer = function reviewsReducer() {
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOT"]:
       return Object.assign({}, state, action.reviews);
 
-    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_REVIEW"]:
       return Object.assign({}, state, _defineProperty({}, action.review.id, action.review));
 
-    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEWS"]:
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_REVIEWS"]:
       return action.reviews;
 
     default:
@@ -2918,6 +2936,38 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/util/review_api_util.js":
+/*!******************************************!*\
+  !*** ./frontend/util/review_api_util.js ***!
+  \******************************************/
+/*! exports provided: createReview, fetchReviews */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
+var createReview = function createReview(review) {
+  return $.ajax({
+    method: "POST",
+    url: "api/reviews",
+    data: {
+      review: review
+    }
+  });
+};
+var fetchReviews = function fetchReviews(spotId) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/reviews",
+    data: {
+      spotId: spotId
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/util/route_utiil.jsx":
 /*!***************************************!*\
   !*** ./frontend/util/route_utiil.jsx ***!
@@ -3004,7 +3054,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 var signup = function signup(user) {
-  // debugger
   return $.ajax({
     url: "/api/users",
     method: "POST",
@@ -3035,7 +3084,7 @@ var logout = function logout() {
 /*!*****************************************!*\
   !*** ./frontend/util/spot_api_util.jsx ***!
   \*****************************************/
-/*! exports provided: createSpot, updateSpot, fetchSpot, fetchSpots, createReview, fetchReviews */
+/*! exports provided: createSpot, updateSpot, fetchSpot, fetchSpots */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3044,8 +3093,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpot", function() { return updateSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpot", function() { return fetchSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSpots", function() { return fetchSpots; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 var createSpot = function createSpot(spot) {
   return $.ajax({
     method: "post",
@@ -3074,24 +3121,6 @@ var fetchSpots = function fetchSpots() {
   return $.ajax({
     method: "GET",
     url: "/api/spots"
-  });
-};
-var createReview = function createReview(review) {
-  return $.ajax({
-    method: "POST",
-    url: "api/reviews",
-    data: {
-      review: review
-    }
-  });
-};
-var fetchReviews = function fetchReviews(spotId) {
-  return $.ajax({
-    method: "GET",
-    url: "/api/reviews",
-    data: {
-      spotId: spotId
-    }
   });
 }; // export const fetchSearch = (query) => (
 //     $.ajax({

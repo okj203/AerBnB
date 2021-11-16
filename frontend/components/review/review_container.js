@@ -1,9 +1,6 @@
 import { connect } from "react-redux";
-import {
-  createReview,
-  fetchSpot,
-  fetchReviews,
-} from "../../actions/spot_actions";
+import { fetchSpot } from "../../actions/spot_actions";
+import { fetchReviews, createReview } from "../../util/review_api_util";
 import ReviewForm from "./review_form";
 import { openModal } from "../../actions/modal_actions";
 import { clearErrors } from "../../actions/session_actions";
